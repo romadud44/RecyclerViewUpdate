@@ -33,7 +33,7 @@ class SecondActivity : AppCompatActivity() {
             insets
         }
 //        init()
-//        viewDataAdapter()
+        viewDataAdapter()
         binding.recycleViewRV.layoutManager = LinearLayoutManager(this)
         listAdapter = CustomAdapter(Thing.thingsDb)
         binding.recycleViewRV.adapter = listAdapter
@@ -71,7 +71,7 @@ class SecondActivity : AppCompatActivity() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun viewDataAdapter() {
-        Thing.thingsDb = dataBase.readThing(this)
+//        Thing.thingsDb = dataBase.readThing(this)
         listAdapter = CustomAdapter(Thing.thingsDb)
         binding.recycleViewRV.adapter = listAdapter
         listAdapter?.notifyDataSetChanged()
@@ -97,6 +97,7 @@ class SecondActivity : AppCompatActivity() {
             Toast.makeText(this, "Объект добавлен ${thingIn.toString()}", Toast.LENGTH_LONG).show()
             if (thingIn != null) {
                 dataBase.updateThing(thingIn!!)
+                Thing.thingsDb = dataBase.readThing(this)
                 viewDataAdapter()
             }
         } else {
