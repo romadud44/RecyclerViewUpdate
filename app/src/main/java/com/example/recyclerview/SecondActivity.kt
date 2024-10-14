@@ -33,7 +33,7 @@ class SecondActivity : AppCompatActivity() {
             insets
         }
 //        init()
-        viewDataAdapter()
+//        viewDataAdapter()
         binding.recycleViewRV.layoutManager = LinearLayoutManager(this)
         listAdapter = CustomAdapter(Thing.thingsDb)
         binding.recycleViewRV.adapter = listAdapter
